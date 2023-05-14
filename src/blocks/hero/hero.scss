@@ -1,0 +1,10 @@
+@import "../../scss/breakpoints";
+
+.hero {
+  $block-name: &; // #{$block-name}__element
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+}

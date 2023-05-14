@@ -1,0 +1,12 @@
+@import "../../scss/breakpoints";
+
+.container {
+  max-width: 1480px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media screen and (min-width: $screen-ti) {
+    padding: 0 48px;
+  }
+}

@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока (faq)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin faq
+
+  //- Вызов:
+        +faq
+
+  section.section.faq(class=allMods)&attributes(attributes)
+    .container
+      +section-title('Вопрос-Ответ', 'aqua')
+      .faq__grid
+        .faq__item
+          .faq__head
+            h3.faq__title Как купить скины?
+            button.faq__trigger +
+          .faq__body
+            .faq__inner
+              .faq__video
+                iframe(src='https://www.youtube.com/embed/n8GyH75vD8I', frameborder='0', allow='accelerometer; encrypted-media; gyroscope; web-share', allowfullscreen='')
+        .faq__item
+          .faq__head
+            h3.faq__title Обман ли это? Как можно вам доверять?
+            button.faq__trigger +
+          .faq__body
+            .faq__inner
+              p.faq__text Мы работаем уже 3 года! Наш старый магазин по MM2: #[a(href='https://vk.com/4ebyrekshop', target='_blank') https://vk.com/4ebyrekshop]
+        .faq__item
+          .faq__head
+            h3.faq__title Как можно с вами связаться для сотрудничества?
+            button.faq__trigger +
+          .faq__body
+            .faq__inner
+              p.faq__text Наша группа в VK: #[a(href='https://vk.com/4ebyrekshop', target='_blank') https://vk.com/4ebyrekshop]
+        .faq__item
+          .faq__head
+            h3.faq__title Какие методы оплаты у вас присутствуют?
+            button.faq__trigger +
+          .faq__body
+            .faq__inner
+              p.faq__text Для этого необходимо зарегистрироваться в личном кабинете и нажать на кнопку «пополнить баланс».
+              p.faq__text Минимальная сумма заказа в нашем магазине 30 рублей.
+              p.faq__text Что это значит? Вы должны собрать ножей, пистолетов и петов на сумму не менее 50-ти рублей.

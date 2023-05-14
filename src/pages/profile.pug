@@ -1,0 +1,29 @@
+extends ../templates/layout_default.pug
+
+block variables
+  - isMainPage = false
+  - isLogin = true
+  - pageTitle = 'Регистрация'
+  - metaDescription = 'description'
+  - metaKeywords = 'keywords'
+  - emptyCart = true
+
+block content
+  section.section
+    .container
+      +section-title('Профиль', 'violet')
+
+      .profile
+        .profile__inner
+          .profile__user
+            .profile__name Nickname
+            .profile__email mail@mail.ru
+          .profile__wallet
+            +wallet(142)
+            +button('link', 'Пополнить', 'blue', '', '', '#')(class='profile__wallet-button')
+          form.profile__pass
+            .profile__pass-title Смена пароля
+            +field('password', '', 'Старый пароль', '', 'password')
+            +field('password', '', 'Новый пароль', '', 'newPassword')
+            +button('button', 'Сохранить', 'primary')(class='form__button', disabled)
+          +button('button', 'Выход', 'secondary')(class='profile__logout')

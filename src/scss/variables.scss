@@ -1,0 +1,49 @@
+@use "sass:color";
+
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --body-color: var(--color-violet-dark);
+  --body-bg: var(--color-invert);
+  --font-base: var(--font-sans);
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, "Courier New", monospace;
+  --font-size-root: 100%;
+  --font-size-base: 1rem;
+  --font-weight-base: 400;
+  --line-height-base: 1.25;
+
+  --color-yellow: rgb(255 222 2);
+  --color-ginger: rgb(255 92 2);
+  --color-ginger-o-10: rgba(255 92 2 / 10%);
+  --color-aqua: rgb(6 174 181);
+  --color-primary: rgb(16 0 32);
+  --color-primary-o-50: rgba(16 0 32 / 50%);
+  --color-primary-o-25: rgba(16 0 32 / 25%);
+  --color-primary-o-10: rgba(16 0 32 / 10%);
+  --color-violet-dark: rgb(36 4 74);
+  --color-violet-medium: rgb(96 48 163);
+  --color-violet-medium-o-25: rgba(96 48 163 / 25%);
+  --color-violet-light: rgb(181 94 255);
+  --color-violet-light-o-10: rgba(181 94 255 / 10%);
+  --color-invert: rgb(255 255 255);
+  --color-invert-o-95: rgba(255 255 255 / 95%);
+  --color-vk: rgb(50 100 174);
+  --color-vk-dark: rgb(36, 91, 169);
+  --color-vk-o-25: rgba(50 100 174 / 25%);
+  --color-vk-o-10: rgba(50 100 174 / 10%);
+
+  --z-index-cart: 2;
+  --z-index-header: 5;
+  --z-index-darker: 7;
+  --z-index-panel: 9;
+
+  --header-back-blur: blur(48px);
+  --header-back-shadow: inset 0 -1px 0 var(--color-violet-medium-o-25);
+  --footer-shadow: inset 0 1px 0 var(--color-violet-medium-o-25);
+  --logo-shadow: inset 0 2px 4px rgba(0,0,0,0.250);
+  --tile-shadow: 0 4px 8px 8px rgba(0,0,0,0.040);
+  --tile-shadow-hover: 0 100px 80px rgba(89 0 170 / 0.070), 0 64.81px 46.85px rgba(89 0 170 / 0.053), 0 38.52px 25.48px rgba(89 0 170 / 0.043), 0 20px 13px rgba(89 0 170 / 0.035), 0 8.15px 6.52px rgba(89 0 170 / 0.027), 0 1.85px 3.15px rgba(89 0 170 / 0.017);
+  --faq-shadow: 0 4px 8px var(--color-primary-o-10);
+}

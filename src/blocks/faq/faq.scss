@@ -1,0 +1,127 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.faq {
+  $block-name: &; // #{$block-name}__element
+
+  &__grid {
+    display: grid;
+    gap: 16px;
+    counter-reset: list;
+  }
+
+  &__item {
+    background: var(--color-white);
+    box-shadow: var(--faq-shadow);
+  }
+
+  &__head {
+    @include flex-center-sb;
+
+    gap: 8px;
+    padding: 8px 8px 8px 48px;
+    cursor: pointer;
+    user-select: none;
+
+    @media screen and (min-width: $screen-tl) {
+      gap: 16px;
+      padding: 16px 16px 16px 104px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      gap: 16px;
+      padding: 32px 32px 32px 104px;
+    }
+  }
+
+  &__title {
+    @include faq-title;
+
+    position: relative;
+    margin: 0;
+
+    &::before {
+      @include faq-title;
+
+      position: absolute;
+      top: 0;
+      left: -40px;
+      display: block;
+      width: 32px;
+      text-align: right;
+      content: "0" counter(list) ".";
+      counter-increment: list;
+
+      @media screen and (min-width: $screen-tl) {
+        left: -104px;
+        width: 80px;
+      }
+    }
+  }
+
+  &__trigger {
+    @include number;
+    @include flex-center;
+
+    width: 32px;
+    height: 32px;
+    color: var(--color-aqua);
+    border: none;
+    cursor: pointer;
+
+    @media screen and (min-width: $screen-tl) {
+      font-size: 32px;
+    }
+  }
+
+  &__body {
+    height: 0;
+    overflow: hidden;
+
+    #{$block-name}__item--open & {
+      height: auto;
+    }
+  }
+
+  &__inner {
+    padding: 16px 24px 16px 48px;
+
+    @media screen and (min-width: $screen-tl) {
+      padding: 24px 16px 40px 104px;
+    }
+  }
+
+  &__video {
+    max-width: 256px;
+    background: var(--color-primary-o-10);
+    aspect-ratio: 16/10;
+
+    @media screen and (min-width: $screen-ti) {
+      max-width: 680px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 1.5;
+
+    & + & {
+      margin-top: 8px;
+    }
+
+    a {
+      color: var(--color-violet-medium);
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

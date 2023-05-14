@@ -1,0 +1,20 @@
+extends ../templates/layout_default.pug
+
+block variables
+  - isMainPage = false
+  - pageTitle = 'Стартовая страница'
+  - metaDescription = 'description'
+  - metaKeywords = 'keywords'
+
+block content
+  +faq
+  section.section.ask(class=allMods)&attributes(attributes)
+    .container
+      +section-title('Задайте ваш Вопрос', 'ginger')
+      form.ask__form
+        .ask__form-col
+          +field('text', '', 'Имя')
+          +field('email', '', 'Почта')
+        .ask__form-col
+          +field('textarea', '', 'Сообщение')(class='ask__textarea')
+          +button('button', 'Отправить', 'primary')(class='ask__button', disabled)

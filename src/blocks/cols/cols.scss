@@ -1,0 +1,40 @@
+@import "../../scss/breakpoints";
+
+.cols {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 16px;
+
+  @media screen and (min-width: $screen-tl) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  @media screen and (min-width: $screen-d) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__aside {
+    @media screen and (min-width: $screen-d) {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: $screen-t) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      grid-column: 4 / 13;
+    }
+  }
+}

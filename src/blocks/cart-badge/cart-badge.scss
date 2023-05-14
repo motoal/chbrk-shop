@@ -1,0 +1,54 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.cart-badge {
+  $block-name: &; // #{$block-name}__element
+
+  @include flex-center;
+
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-violet-medium);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+
+  @media screen and (min-width: $screen-tl) {
+    width: 64px;
+    height: 64px;
+  }
+
+  &:hover {
+    background-color: var(--color-violet-light);
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+
+    @media screen and (min-width: $screen-tl) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &[data-cart-counter]::before {
+    @include cart-counter;
+    @include flex-center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 24px;
+    height: 24px;
+    padding: 4px;
+    color: var(--color-white);
+    background-color: var(--color-ginger);
+    border-radius: 12px;
+    transform: translate(50%, -50%);
+    content: attr(data-cart-counter);
+  }
+}

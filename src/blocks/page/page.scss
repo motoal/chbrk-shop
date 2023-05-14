@@ -1,0 +1,89 @@
+@import "../../scss/breakpoints";
+
+.page {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__header {
+    position: fixed;
+    z-index: var(--z-index-header);
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  &__main {
+    flex: 1 0 auto;
+    padding-top: 112px;
+
+    @media screen and (min-width: $screen-tl) {
+      padding-top: 96px;
+    }
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+  }
+
+  &__cart-badge {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: var(--z-index-cart);
+
+    @media screen and (min-width: $screen-tl) {
+      right: 48px;
+      bottom: 48px;
+    }
+  }
+
+  &__cart {
+    position: fixed;
+    bottom: 0;
+    z-index: var(--z-index-panel);
+    width: 100%;
+    height: 480px;
+    transform: translateY(100%);
+    transition: height 0.25s ease, transform 0.25s ease;
+    will-change: transform;
+
+    @media screen and (min-width: $screen-t) {
+      right: 0;
+      max-width: 360px;
+      height: 100%;
+      transform: translateX(100%);
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      max-width: 680px;
+    }
+
+    [data-state="open-panel-cart"] & {
+      transform: translateY(0);
+
+      @media screen and (min-width: $screen-t) {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__darker {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-index-darker);
+    background-color: var(--color-violet-medium);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+
+    [data-state="open-panel-cart"] & {
+      opacity: 0.1;
+      pointer-events: auto;
+    }
+  }
+}

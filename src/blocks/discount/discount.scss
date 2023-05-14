@@ -1,0 +1,162 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.discount {
+  $block-name: &; // #{$block-name}__element
+
+  padding: 32px 0 16px;
+  background-color: var(--color-yellow);
+
+  @media screen and (min-width: $screen-tl) {
+    padding: 0;
+  }
+
+  &__inner {
+    @media screen and (min-width: $screen-tl) {
+      display: grid;
+      grid-template-areas: "title card";
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    @include sale-title;
+
+    margin: 0 0 16px;
+    text-align: center;
+
+    @media screen and (min-width: $screen-tl) {
+      grid-area: title;
+      grid-column: 1 / 5;
+      align-self: center;
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  &__card {
+    padding: 8px;
+    background-color: var(--color-white);
+
+    @media screen and (min-width: $screen-t) {
+      display: grid;
+      grid-template-columns: 200px auto;
+      gap: 24px;
+      padding: 32px;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      grid-area: card;
+      grid-column: 5 / 13;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      grid-template-columns: 312px auto;
+      gap: 40px;
+      padding: 64px 56px 64px 64px;
+    }
+  }
+
+  &__card-image {
+    display: block;
+    aspect-ratio: 1 / 1;
+    border-radius: 2px;
+  }
+
+  &__card-info {
+    padding: 16px 8px;
+
+    @media screen and (min-width: $screen-t) {
+      padding: 0;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      align-self: center;
+    }
+  }
+
+  &__card-title {
+    @include card-title;
+
+    margin: 0 0 12px;
+    text-align: center;
+
+    @media screen and (min-width: $screen-t) {
+      margin: 0 0 16px;
+      text-align: left;
+    }
+  }
+
+  &__card-row {
+    @include flex-column;
+
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $screen-t) {
+      flex-direction: row;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__card-old-price {
+    @include price-old;
+
+    color: var(--color-ginger);
+    text-align: center;
+    text-decoration-line: line-through;
+
+    @media screen and (min-width: $screen-t) {
+      text-align: left;
+    }
+  }
+
+  &__card-price {
+    @include price;
+
+    text-align: center;
+
+    @media screen and (min-width: $screen-t) {
+      text-align: left;
+    }
+  }
+
+  &__card-actions {
+    display: grid;
+    gap: 8px;
+
+    @media screen and (min-width: $screen-tl) {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 16px;
+    }
+  }
+
+  &__button {
+    padding: 12px;
+
+    @media screen and (min-width: $screen-t) {
+      padding: 16px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      @include button-default;
+
+      padding: 12px;
+    }
+  }
+
+  &__small {
+    @include small;
+
+    margin-top: 24px;
+    color: var(--color-primary-o-50);
+    text-align: center;
+
+    @media screen and (min-width: $screen-t) {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/text-styles";
+
+.profile {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    max-width: 334px;
+    margin: 0 auto;
+  }
+
+  &__user {
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    color: var(--color-violet-medium);
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $screen-tl) {
+      text-align: left;
+    }
+  }
+
+  &__email {
+    @include body;
+
+    text-align: center;
+
+    @media screen and (min-width: $screen-tl) {
+      text-align: left;
+    }
+  }
+
+  &__wallet {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  &__wallet-button {
+    padding: 11px;
+  }
+
+  &__logout {
+    width: 100%;
+    padding: 11px;
+  }
+
+  &__pass {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+}

@@ -1,0 +1,67 @@
+extends ../templates/layout_default.pug
+
+block variables
+  - isMainPage = false
+  - isLogin = true
+  - pageTitle = 'Регистрация'
+  - metaDescription = 'description'
+  - metaKeywords = 'keywords'
+  - emptyCart = true
+  -
+    list = [
+      {
+        "label": "Нож",
+        "value": "Нож"
+      },
+      {
+        "label": "Пистолет",
+        "value": "Пистолет"
+      },
+      {
+        "label": "Сет",
+        "value": "Сет"
+      },
+      {
+        "label": "Питомец",
+        "value": "Питомец"
+      }
+    ]
+
+block content
+  section.section
+    .container
+      +section-title('Магазин', 'ginger')
+
+      .cols
+        .cols__aside
+          .filter
+            +button('button', 'Фильтр', 'tertiary')(class='filter__trigger')
+            form.filter__inner
+              .filter__section
+                .filter__title Цена, ₽
+                .filter__input-range
+                  .filter__row-input
+                    +input('от', '', 'priceFrom', '')(class='filter__input')
+                    .filter__row-input-divider
+                    +input('до', '', 'priceTo', '')(class='filter__input')
+                  .filter__range.range
+                    .range__inner
+              .filter__divider
+              .filter__section
+                .filter__title Тип
+                ul.filter__checkbox-list
+                  each checkbox in list
+                    li.filter__checkbox-item
+                      +checkbox(checkbox.label, '', 'type', '', checkbox.value)
+              +button('button', 'Применить', 'tertiary')(class='filter__button')
+
+        .cols__grid
+          each card in [1, 2, 3, 4, 5, 6, 7]
+            .card-product
+              img.card-product__img(src=src.assets + 'img__product.webp', alt='Х.СВ.ЕР.ЛИ.Г.АН')
+              .card-product__info
+                .card-product__title Х.СВ.ЕР.ЛИ.Г.АН
+                .card-product__row
+                  .card-product__old-price #[span 650] ₽
+                  .card-product__price #[span 325] ₽
+                +button('button', 'В корзину', 'tertiary')(class='card-product__button')

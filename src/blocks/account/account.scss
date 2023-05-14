@@ -1,0 +1,62 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.account {
+  $block-name: &; // #{$block-name}__element
+
+  @include flex-center;
+
+  &__inner {
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color 0.25s ease;
+
+    &:hover {
+      background-color: var(--color-violet-light-o-10);
+    }
+  }
+
+  &__name {
+    max-width: 80px;
+    overflow: hidden;
+    color: var(--color-violet-medium);
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 1.3334;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+  }
+
+  &__email {
+    max-width: 80px;
+    overflow: hidden;
+    color: var(--color-violet-dark);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__button {
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+
+    &:hover {
+      background-color: var(--color-ginger-o-10);
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-ginger);
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../scss/breakpoints";
+
+.inventory {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    display: grid;
+    gap: 8px;
+
+    @media screen and (min-width: $screen-ti) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      grid-template-columns: 1fr;
+      max-width: 264px;
+    }
+  }
+
+  &__submit {
+    padding: 15px;
+  }
+}

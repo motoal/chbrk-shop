@@ -1,0 +1,85 @@
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.button {
+  $block-name: &; // #{$block-name}__element
+
+  @include flex-center;
+  @include button-small;
+
+  gap: 12px;
+  padding: 7px 11px;
+  color: var(--color-invert);
+  text-decoration: none;
+  background: var(--color-violet-medium);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.25s ease, border 0.25s ease, color 0.25s ease;
+  appearance: none;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &--primary {
+    background: var(--color-violet-medium);
+    border: 1px solid var(--color-violet-medium);
+
+    &:hover {
+      background: var(--color-violet-light);
+    }
+  }
+
+  &--secondary {
+    color: var(--color-ginger);
+    background: var(--color-white);
+    border: 1px solid var(--color-ginger);
+
+    &:hover {
+      color: var(--color-white);
+      background: var(--color-ginger);
+    }
+  }
+
+  &--tertiary {
+    color: var(--color-violet-medium);
+    background: var(--color-white);
+    border: 1px solid var(--color-violet-medium);
+
+    &:hover {
+      color: var(--color-white);
+      background: var(--color-violet-medium);
+    }
+  }
+
+  &--blue {
+    color: var(--color-white);
+    background: var(--color-vk);
+    border: 1px solid var(--color-vk);
+
+    &:hover {
+      background: var(--color-vk-dark);
+      border: 1px solid var(--color-vk-dark);
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+
+  &:focus {
+    outline: 3px solid var(--brand-primary-light);
+  }
+
+  &__title {
+    display: block;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}

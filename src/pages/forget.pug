@@ -1,0 +1,18 @@
+extends ../templates/layout_default.pug
+
+block variables
+  - isMainPage = false
+  - pageTitle = 'Забыл пароль'
+  - metaDescription = 'description'
+  - metaKeywords = 'keywords'
+
+block content
+  section.section
+    .container
+      form.form.form--forget
+        h2.form__title Забыл пароль
+        p.form__text Введите свою электронную почту и мы вышлем вам ссылку для сброса паролья
+        .form__grid
+          +field('email', '', 'Почта')
+          +button('button', 'Сбросить пароль', 'primary')(class='form__button', disabled)
+        a.form__link(href='authorisation.html') Я вспомнил пароль

@@ -1,0 +1,105 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/flexbox";
+@import "../../scss/mixins/text-styles";
+
+.card-cart {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  box-shadow: var(--tile-shadow);
+
+  @media screen and (min-width: $screen-tl) {
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding: 16px 32px 16px 16px;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 64px auto;
+    gap: 8px;
+
+    @media screen and (min-width: $screen-tl) {
+      grid-template-columns: 80px auto;
+      gap: 24px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: $screen-tl) {
+      gap: 32px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    align-self: center;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: inherit;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  &__old-price {
+    color: var(--color-ginger);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    text-decoration-line: line-through;
+  }
+
+  &__price {
+    color: var(--color-violet-medium);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  :is(&) &__number {
+    width: 168px;
+    height: 40px;
+
+    @media screen and (min-width: $screen-tl) {
+      width: 144px;
+      height: 48px;
+    }
+  }
+
+  &__delete {
+    padding: 0;
+    color: var(--color-ginger);
+    border: none;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    appearance: none;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+  }
+}

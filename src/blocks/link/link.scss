@@ -1,0 +1,10 @@
+.link {
+  $block-name: &; // #{$block-name}__element
+
+  color: var(--color-violet-medium);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

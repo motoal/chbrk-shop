@@ -1,0 +1,23 @@
+@import "../breakpoints";
+
+.simplebar-track.simplebar-vertical {
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  width: 8px;
+  background: var(--color-violet-light-o-10);
+  border-radius: 4px;
+}
+
+.simplebar-scrollbar::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--color-violet-medium-o-25);
+  border-radius: 4px;
+}
+
+.simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1;
+}

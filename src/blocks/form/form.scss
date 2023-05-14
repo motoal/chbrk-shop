@@ -1,0 +1,95 @@
+@import "../../scss/breakpoints";
+@import "../../scss/mixins/text-styles";
+
+.form {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 16px;
+
+  @media screen and (min-width: $screen-tl) {
+    gap: 32px;
+  }
+
+  &--registration,
+  &--forget,
+  &--login {
+    max-width: 334px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include form-title;
+
+    margin: 0;
+    text-align: center;
+
+    @media screen and (min-width: $screen-tl) {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    @include small;
+
+    margin: 0 0 -20px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__message {
+    display: none;
+    padding: 16px;
+    background-color: var(--color-violet-light-o-10);
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__message-title {
+    margin-bottom: 4px;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  &__message-list {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 12px;
+  }
+
+  &__button {
+    padding: 15px;
+  }
+
+  &__link {
+    justify-self: center;
+    color: var(--color-violet-light);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration-line: underline;
+
+    &:hover {
+      color: var(--color-violet-medium);
+      text-decoration: none;
+    }
+  }
+
+  &__forget {
+    color: var(--color-violet-medium);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-violet-dark);
+      text-decoration-line: underline;
+    }
+  }
+}
