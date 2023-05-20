@@ -82,6 +82,7 @@
 
     margin: 0 0 12px;
     text-align: center;
+    word-break: break-all;
 
     @media screen and (min-width: $screen-t) {
       margin: 0 0 16px;

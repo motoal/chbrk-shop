@@ -9,4 +9,12 @@
   @media screen and (min-width: $screen-ti) {
     padding: 0 48px;
   }
+
+  &--wide {
+    max-width: none;
+
+    @media screen and (min-width: $screen-ti) {
+      padding: 0 24px;
+    }
+  }
 }
