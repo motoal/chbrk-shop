@@ -44,4 +44,16 @@
       display: block;
     }
   }
+
+  &__label {
+    color: var(--color-violet-medium);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.3334;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    width: 100%;
+  }
 }

@@ -1,5 +1,18 @@
 /* global module */
 
+let paths = {
+  "js": "js/",
+  "css": "css/",
+  "img": "./img/",
+  "mock": "mock/",
+  "fonts": "fonts/",
+  "pages": "/",
+  "assets": "./assets/",
+  get icon() {
+    return `${this.img}svgSprite.svg#`;
+  }
+}
+
 let sources = {
   "js": "/js/",
   "css": "/css/",
@@ -55,7 +68,8 @@ let config = {
     "svgAsBg": "src/symbols/svgAsBg.xml",
     "build": "build",
   },
-  "sources": sources
+  "sources": sources,
+  "paths": paths
 };
 
 module.exports = config;

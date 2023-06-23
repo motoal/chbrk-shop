@@ -1,0 +1,64 @@
+extends ../templates/layout_default.pug
+
+block variables
+  - isMainPage = false
+  - isLogin = true
+  - pageTitle = 'Пополнение'
+  - metaDescription = 'description'
+  - metaKeywords = 'keywords'
+  - emptyCart = false
+
+block content
+  section.section
+    .container
+      .payment
+        .payment__section
+          .payment__balance
+            .payment__balance-title Ваш баланс
+            .payment__balance-amount #[span 142] ₽
+        .payment__section
+          .payment__types
+            label.payment__type
+              input.payment__radio(name='bank', type='radio', data-percent='0.0269', checked)
+              .payment__type-tile
+                img.payment__type-img(src=src.assets + 'img__bank--tink.jpg', alt='Тинькофф')
+                .payment__type-info
+                  .payment__type-title Тинькофф
+                  .payment__type-percent 2,69 %
+            label.payment__type
+              input.payment__radio(name='bank', type='radio', data-percent='0.03')
+              .payment__type-tile
+                img.payment__type-img(src=src.assets + 'img__bank--sber.jpg', alt='Тинькофф')
+                .payment__type-info
+                  .payment__type-title Сбербанк
+                  .payment__type-percent 3,00 %
+            label.payment__type
+              input.payment__radio(name='bank', type='radio', data-percent='0.04')
+              .payment__type-tile
+                img.payment__type-img(src=src.assets + 'img__bank--alfa.jpg', alt='Тинькофф')
+                .payment__type-info
+                  .payment__type-title Альфа банк
+                  .payment__type-percent 4,00 %
+
+        .payment__section
+          form.payment__form
+            .payment__title Сумма пополнения
+            .payment__descr Выберите желаемое количество средств для пополнения.
+            .payment__row
+              +field('text', 'Сумма, ₽', '', '', 'sum', 'sum', '100,00')
+              +field('text', 'Итого с комиссией, ₽', '', '', 'total', 'total')
+            .payment__block
+              .payment__subtitle Популярное
+              .payment__grid
+                button.payment__button(type='button', data-amount='100,00') 100
+                button.payment__button(type='button', data-amount='250,00') 250
+                button.payment__button(type='button', data-amount='500,00') 500
+                button.payment__button(type='button', data-amount='1000,00') 1000
+                button.payment__button(type='button', data-amount='2500,00') 2500
+                button.payment__button(type='button', data-amount='5000,00') 5000
+            .field
+              label.checkbox
+                input.checkbox__input(type='checkbox')
+                span.checkbox__fake-input
+                span.checkbox__label Я согласен с #[a.link(href='#') политикой конфиденциальности] и #[a.link(href='#') пользовательским соглашением]
+            +button('button', 'Пополнить', 'primary')(class='payment__submit')(disabled)

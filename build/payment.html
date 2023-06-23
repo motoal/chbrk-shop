@@ -24,7 +24,7 @@
   <meta name="theme-color" content="#000">
   <meta name="msapplication-navbutton-color" content="#000">
   <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-  <title>Вход</title>
+  <title>Пополнение</title>
   <meta name="description" content="description">
   <meta name="keywords" content="keywords">
   <link rel="stylesheet" href="css/style.css"><script>// Убрать на html класс "no-js", добавить класс "js": с уровня стилей знаем работает ли JS
@@ -55,6 +55,9 @@ window.addEventListener('resize', () => {
 
 <body><noscript>У вас отключен JavaScript. Это пугает.</noscript>
   <div class="page">
+    <div class="page__cart-badge"><button class="cart-badge" data-cart-counter="22" data-panel-trigger="cart"><svg class="cart-badge__icon">
+          <use href="img/svgSprite.svg#icon__cart"></use>
+        </svg></button></div>
     <div class="page__cart">
       <div class="panel">
         <div class="panel__header">
@@ -124,27 +127,72 @@ window.addEventListener('resize', () => {
               <nav class="header__nav"><a class="header__nav-item" href="shop.html">Магазин</a><a class="header__nav-item" href="inventory.html">Инвентарь</a><a class="header__nav-item" href="faq.html">FAQ</a><a class="header__nav-item" href="instruction.html">Инструкция</a></nav>
             </div>
           </div>
-          <div class="header__user"><a class="button" href="authorisation.html"><span class="button__title">Профиль</span></a></div>
+          <div class="header__user"><a class="wallet header__wallet" href="profile.html"><svg class="wallet__icon">
+                <use href="img/svgSprite.svg#icon__wallet"></use>
+              </svg>
+              <div class="wallet__title"><span>142</span> ₽</div>
+            </a>
+            <div class="header__divider"></div>
+            <div class="account header__account"><a class="account__inner" href="profile.html">
+                <div class="account__name">Nickname</div>
+                <div class="account__email">mail@mail.ru</div>
+              </a><button class="account__button"><svg class="account__icon">
+                  <use href="img/svgSprite.svg#icon__logout"></use>
+                </svg></button></div>
+          </div>
         </div>
       </header>
     </div>
     <div class="page__main">
       <section class="section">
         <div class="container">
-          <form class="form form--login">
-            <h2 class="form__title">Вход</h2>
-            <div class="form__grid">
-              <div class="field"><label class="field__inner"><input class="input field__input" type="email" placeholder="Почта" pattern="[w-\.]+@([w-]+\.)+[w-]{2,4}$" /></label></div>
-              <div class="field"><label class="field__inner"><input class="input field__input" id="password" type="password" placeholder="Пароль" />
-                  <div class="field__show"><svg class="field__icon field__eye">
-                      <use href="img/svgSprite.svg#icon__eye"></use>
-                    </svg><svg class="field__icon field__eye-off">
-                      <use href="img/svgSprite.svg#icon__eye--off"></use>
-                    </svg></div>
+          <div class="payment">
+            <div class="payment__section">
+              <div class="payment__balance">
+                <div class="payment__balance-title">Ваш баланс</div>
+                <div class="payment__balance-amount"><span>142</span> ₽</div>
+              </div>
+            </div>
+            <div class="payment__section">
+              <div class="payment__types"><label class="payment__type"><input class="payment__radio" name="bank" type="radio" data-percent="0.0269" checked>
+                  <div class="payment__type-tile"><img class="payment__type-img" src="./assets/img__bank--tink.jpg" alt="Тинькофф">
+                    <div class="payment__type-info">
+                      <div class="payment__type-title">Тинькофф</div>
+                      <div class="payment__type-percent">2,69 %</div>
+                    </div>
+                  </div>
+                </label><label class="payment__type"><input class="payment__radio" name="bank" type="radio" data-percent="0.03">
+                  <div class="payment__type-tile"><img class="payment__type-img" src="./assets/img__bank--sber.jpg" alt="Тинькофф">
+                    <div class="payment__type-info">
+                      <div class="payment__type-title">Сбербанк</div>
+                      <div class="payment__type-percent">3,00 %</div>
+                    </div>
+                  </div>
+                </label><label class="payment__type"><input class="payment__radio" name="bank" type="radio" data-percent="0.04">
+                  <div class="payment__type-tile"><img class="payment__type-img" src="./assets/img__bank--alfa.jpg" alt="Тинькофф">
+                    <div class="payment__type-info">
+                      <div class="payment__type-title">Альфа банк</div>
+                      <div class="payment__type-percent">4,00 %</div>
+                    </div>
+                  </div>
                 </label></div>
-              <div class="field field--flex"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__fake-input"></span><span class="checkbox__label">Запомнить меня</span></label><a class="form__forget" href="forget.html">Забыл пароль</a></div><button class="button  button--primary form__button" disabled="disabled"><span class="button__title">Зарегистрироваться</span></button>
-            </div><a class="form__link" href="registration.html">У меня есть аккаунт</a>
-          </form>
+            </div>
+            <div class="payment__section">
+              <form class="payment__form">
+                <div class="payment__title">Сумма пополнения</div>
+                <div class="payment__descr">Выберите желаемое количество средств для пополнения.</div>
+                <div class="payment__row">
+                  <div class="field"><label class="field__inner"><span class="field__label">Сумма, ₽</span><input class="input field__input" id="sum" type="text" name="sum" value="100,00" /></label></div>
+                  <div class="field"><label class="field__inner"><span class="field__label">Итого с комиссией, ₽</span><input class="input field__input" id="total" type="text" name="total" /></label></div>
+                </div>
+                <div class="payment__block">
+                  <div class="payment__subtitle">Популярное</div>
+                  <div class="payment__grid"><button class="payment__button" type="button" data-amount="100,00">100</button><button class="payment__button" type="button" data-amount="250,00">250</button><button class="payment__button" type="button" data-amount="500,00">500</button><button class="payment__button" type="button" data-amount="1000,00">1000</button><button class="payment__button" type="button" data-amount="2500,00">2500</button><button class="payment__button" type="button" data-amount="5000,00">5000</button></div>
+                </div>
+                <div class="field"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__fake-input"></span><span class="checkbox__label">Я согласен с <a class="link" href="#">политикой конфиденциальности</a> и <a class="link" href="#">пользовательским соглашением</a></span></label></div><button class="button  button--primary payment__submit" disabled="disabled"><span class="button__title">Пополнить</span></button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </div>

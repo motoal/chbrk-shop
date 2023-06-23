@@ -28,6 +28,8 @@ mixin field(type, label, placeholder, mods, name, id, value, max)
 
   .field(class= allMods)
     label.field__inner
+      if label
+        span.field__label!= label
       if type === 'text'
         +input(placeholder, '', id, name, value)(class='field__input')&attributes(attributes)
       if type === 'email'
@@ -51,5 +53,3 @@ mixin field(type, label, placeholder, mods, name, id, value, max)
         +textarea(placeholder, '', name, id, value)(class='field__textarea')&attributes(attributes)
       if type === 'select'
         +select(value, '', name, id)(class='field__select')&attributes(attributes)
-      if label
-        span.field__label!= label

@@ -90,7 +90,7 @@
   },
   "dependencies": {
     "autosize": "^5.0.2",
-    "imask": "^6.4.3",
+    "imask": "^7.0.1",
     "nouislider": "^15.7.0",
     "sanitize.css": "^13.0.0",
     "simplebar": "^6.2.5"
