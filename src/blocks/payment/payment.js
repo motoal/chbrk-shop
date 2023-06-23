@@ -122,7 +122,7 @@ function paymentFormCheck(form) {
   const checkbox = form.querySelector(".checkbox__input");
   const submitButton = form.querySelector(".payment__submit");
 
-  fieldValue !== "" && fieldValue > 50 && checkbox.checked
+  fieldValue !== "" && fieldValue >= 50 && checkbox.checked
     ? submitButton.removeAttribute("disabled")
     : submitButton.setAttribute("disabled", "true");
 }

@@ -20,7 +20,7 @@ mixin wallet(text, type, mods)
       }
     }
   if type === 'link'
-    a.wallet(href='profile.html', class=allMods)&attributes(attributes)
+    a.wallet(href='payment.html', class=allMods)&attributes(attributes)
       svg.wallet__icon
         use(href='img/svgSprite.svg#icon__wallet')
       .wallet__title #[span #{text}] ₽
